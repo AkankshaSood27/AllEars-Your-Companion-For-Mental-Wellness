@@ -19,7 +19,7 @@ namespace AllEars.Server.Repositories
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            string conn = @"server=localhost;port=3306;user=root;password=root123;database=AllEars1";
+            string conn = @"server=localhost;port=3307;user=root;password=root;database=AllEars";
             optionsBuilder.UseMySQL(conn);
         }
 

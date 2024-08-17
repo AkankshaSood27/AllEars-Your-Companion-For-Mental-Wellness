@@ -1,13 +1,18 @@
 //import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
+import About from './components/About';      // Import About component
+import Contact from './components/Contact';  // Import Contact component
+import Dashboard from './components/Dashboard';
+import Footer from './components/Footer';  
+import Register from './Register';
 import Login from './Login';
 import './index.css';
 import './Login.css';
-
+import './Register.css';
 function App ()  {
     
 
@@ -16,10 +21,17 @@ function App ()  {
 
             <Router>
                 <Header /> {/* Header is outside Routes to appear on every page */}
+
+                
                 <Routes>
                     <Route path="/" element={<HeroSection />} />
                     <Route path="/login" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/register" element={<Register />} /> {/* Register route */}
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
+                <Footer />
             </Router>
 
         </div>

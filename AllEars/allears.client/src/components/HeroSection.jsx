@@ -8,7 +8,7 @@ function HeroSection() {
             <h2>Sometimes all you need is someone who listens.</h2>
             <h3>We&apos;re here for you</h3>
             <p>Find peace and healing through our professional therapy services.</p>
-            <button className="hero-button">Book a Session</button>
+            <button className="hero-button" >Book a Session</button>
         </section >
     );
 }

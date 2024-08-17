@@ -1,4 +1,6 @@
-﻿using AllEars.Server.Entities;
+﻿
+
+using AllEars.Server.Entities;
 using System;
 using Microsoft.EntityFrameworkCore;
 

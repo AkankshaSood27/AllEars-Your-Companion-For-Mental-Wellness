@@ -1,0 +1,31 @@
+.footer {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.footer h5 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  margin-bottom: 0.5rem;
+}
+
+.footer .list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer .list-inline-item {
+  margin-right: 10px;
+}
+
+.footer .list-inline-item a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer .list-inline-item a:hover {
+  text-decoration: underline;
+}

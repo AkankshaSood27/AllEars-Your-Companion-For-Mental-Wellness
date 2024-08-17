@@ -28,5 +28,23 @@ namespace AllEars.Server.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] Patient patient)
+        {
+            var result = await _authService.RegisterPatientAsync(patient);
+            if (result == "Registration successful")
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+
     }
+
+    
 }
