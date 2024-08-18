@@ -12,12 +12,6 @@ namespace AllEars.Server.Entities
         [MaxLength(255, ErrorMessage = "Category name should not exceed 255 characters")]
         public string category_name { get; set; }
 
-        //// Navigation properties
-        //public ICollection<ClinicalPsychologist> ClinicalPsychologists { get; set; }
-        //public ICollection<CounsellingPsychologist> CounsellingPsychologists { get; set; }
-        //public ICollection<Patient> Patients { get; set; }
-
-        // Default constructor
         public Category() { }
 
         // Parameterized constructor

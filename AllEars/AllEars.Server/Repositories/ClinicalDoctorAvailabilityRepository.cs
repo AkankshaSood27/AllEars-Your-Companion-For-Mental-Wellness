@@ -33,6 +33,19 @@ namespace AllEars.Server.Repositories
             }
         }
 
+        public async Task<List<ClinicalDoctorAvailability>> GetByDate(string date)
+        {
+            using (var context = new AllEarsContext())
+            {
+                var availabilities = await context.ClinicalDoctorAvailabilities
+                    .Where(a => a.cl_available_date == date)
+                    .ToListAsync();
+
+                return availabilities;
+            }
+        }
+
+
         public async Task<bool> Create(ClinicalDoctorAvailability clAvail)
         {
             using (var context = new AllEarsContext())
@@ -55,8 +68,7 @@ namespace AllEars.Server.Repositories
 
                 existingAvailability.doctorId = clAvail.doctorId;
                 existingAvailability.cl_available_date = clAvail.cl_available_date;
-                existingAvailability.start_time = clAvail.start_time;
-                existingAvailability.end_time = clAvail.end_time;
+                existingAvailability.time_slot = clAvail.time_slot;
 
                 await context.SaveChangesAsync();
                 return true;

@@ -33,7 +33,20 @@ namespace AllEars.Server.Repositories
                 }
             }
 
-            public async Task<bool> CreateCounsellingPsychologist(CounsellingPsychologist counsellingPsychologist)
+        public async Task<List<CounsellingPsychologist>> GetCounsellingPsychologistByCategoryID(int categoryId)
+        {
+            using (var context = new AllEarsContext())
+            {
+                // Retrieve all CounsellingPsychologists with the specified category_id
+                var counsellingPsychologists = await context.CounsellingPsychologists
+                    .Where(cp => cp.category_id == categoryId)
+                    .ToListAsync();
+
+                return counsellingPsychologists;
+            }
+        }
+
+        public async Task<bool> CreateCounsellingPsychologist(CounsellingPsychologist counsellingPsychologist)
             {
                 using (var context = new AllEarsContext())
                 {

@@ -33,10 +33,15 @@ namespace AllEars.Server.Services
         {
             return await _clinicalPsychologistRepository.UpdateClinicalPsychologist(id, clinicalPsychologist);
         }
-
+        public async Task<List<ClinicalPsychologist>> GetClinicalPsychologistsByCategoryId(int categoryId)
+        {
+            return await _clinicalPsychologistRepository.GetClinicalPsychologistsByCategoryId(categoryId);
+        }
         public async Task<bool> DeleteClinicalPsychologist(int clinicalPsychologistId)
         {
             return await _clinicalPsychologistRepository.DeleteClinicalPsychologist(clinicalPsychologistId);
         }
+
+
     }
 }

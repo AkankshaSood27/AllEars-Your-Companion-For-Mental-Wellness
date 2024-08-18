@@ -1,4 +1,3 @@
-
 //import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,11 +16,16 @@ function Dashboard() {
         return null;
     }
 
+    // Handle Book a Session button click
+    const handleBookSession = () => {
+        navigate("/book-session", { state: { patient_id, patient_name } });
+    };
+
     return (
         <div className="container mt-5">
-            <h2 className="mb-4">Dashboard</h2>
-            <div className="card">
-                <div className="card-header">
+            <h2 className="mb-4 text-center">Patient Dashboard</h2>
+            <div className="card shadow-lg">
+                <div className="card-header text-center bg-primary text-white">
                     <h4>Welcome, {patient_name}</h4>
                 </div>
                 <div className="card-body">
@@ -30,7 +34,8 @@ function Dashboard() {
                             <img
                                 src={`/profile_image.png`}
                                 alt="Profile"
-                                className="img-fluid rounded-circle mb-3"
+                                className="img-fluid rounded-circle mb-3 border border-primary"
+                                style={{ maxWidth: "150px" }}
                             />
                         </div>
                         <div className="col-md-8">
@@ -43,6 +48,12 @@ function Dashboard() {
                             <p>
                                 <strong>Name:</strong> {patient_name}
                             </p>
+                            <button 
+                                className="btn btn-success mt-3" 
+                                onClick={handleBookSession}
+                            >
+                                Book a Session
+                            </button>
                         </div>
                     </div>
                 </div>

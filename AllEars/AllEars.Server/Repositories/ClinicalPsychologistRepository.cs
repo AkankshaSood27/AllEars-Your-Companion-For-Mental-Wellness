@@ -33,6 +33,18 @@ namespace AllEars.Server.Repositories
             }
         }
 
+        public async Task<List<ClinicalPsychologist>> GetClinicalPsychologistsByCategoryId(int categoryId)
+        {
+            using (var context = new AllEarsContext())
+            {
+                var clinicalPsychologists = await context.ClinicalPsychologists
+                    .Where(cp => cp.category_id == categoryId)
+                    .ToListAsync();
+
+                return clinicalPsychologists;
+            }
+        }
+
         public async Task<bool> CreateClinicalPsychologist(ClinicalPsychologist clinicalPsychologist)
         {
             using (var context = new AllEarsContext())

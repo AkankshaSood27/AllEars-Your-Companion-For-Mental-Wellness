@@ -9,5 +9,6 @@ namespace AllEars.Server.Repositories
         Task<bool> CreateClinicalPsychologist(ClinicalPsychologist clinicalPsychologist);
         Task<bool> UpdateClinicalPsychologist(int id, ClinicalPsychologist clinicalPsychologist);
         Task<bool> DeleteClinicalPsychologist(int clinical_psychologist_id);
+        Task<List<ClinicalPsychologist>> GetClinicalPsychologistsByCategoryId(int categoryId);
     }
 }

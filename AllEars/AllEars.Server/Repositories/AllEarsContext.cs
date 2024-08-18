@@ -19,7 +19,7 @@ namespace AllEars.Server.Repositories
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            string conn = @"server=localhost;port=3307;user=root;password=root;database=AllEars";
+            string conn = @"server=localhost;port=3306;user=root;password=root;database=AllEars";
             optionsBuilder.UseMySQL(conn);
         }
 
@@ -63,12 +63,7 @@ namespace AllEars.Server.Repositories
                 entity.Property(e => e.address).HasMaxLength(255);
                 entity.Property(e => e.category_id).IsRequired();
 
-                //entity.HasOne(e => e.Category)
-                //      .WithMany(c => c.ClinicalPsychologists)
-                //      .HasForeignKey(e => e.category_id)
-                      //.OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("ClinicalPsychologist");
+                
             });
             modelBuilder.Entity<ClinicalPsychologist>().ToTable("ClinicalPsychologist");
 
@@ -83,12 +78,7 @@ namespace AllEars.Server.Repositories
                 entity.Property(e => e.address).HasMaxLength(255);
                 entity.Property(e => e.category_id).IsRequired();
 
-                //entity.HasOne(e => e.Category)
-                //      .WithMany(c => c.CounsellingPsychologists)
-                //      .HasForeignKey(e => e.category_id)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("CounsellingPsychologist");
+                
             });
             modelBuilder.Entity<CounsellingPsychologist>().ToTable("CounsellingPsychologist");
 
@@ -102,14 +92,8 @@ namespace AllEars.Server.Repositories
                 entity.Property(e => e.patient_age).IsRequired();
                 entity.Property(e => e.patient_bloodGroup).HasMaxLength(5);
                 entity.Property(e => e.address).HasMaxLength(255);
-                entity.Property(e => e.category_id).IsRequired();
+                
 
-                //entity.HasOne(e => e.Category)
-                //      .WithMany(c => c.Patients)
-                //      .HasForeignKey(e => e.category_id)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-               // entity.ToTable("Patient");
             });
             modelBuilder.Entity<Patient>().ToTable("Patient");
 
@@ -117,16 +101,10 @@ namespace AllEars.Server.Repositories
             {
                 entity.HasKey(e => e.cl_availability_id);
                 entity.Property(e => e.cl_available_date).IsRequired();
-                entity.Property(e => e.start_time).IsRequired();
-                entity.Property(e => e.end_time).IsRequired();
+                entity.Property(e => e.time_slot).IsRequired();
                 entity.Property(e => e.doctorId).IsRequired();
 
-                //entity.HasOne(e => e.ClinicalPsychologist)
-                //      .WithMany(c => c.ClinicalDoctorAvailabilities)
-                //      .HasForeignKey(e => e.doctorId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("ClinicalDoctorAvailability");
+                
             });
             modelBuilder.Entity<ClinicalDoctorAvailability>().ToTable("ClinicalDoctorAvailability");
 
@@ -134,16 +112,10 @@ namespace AllEars.Server.Repositories
             {
                 entity.HasKey(e => e.co_availability_id);
                 entity.Property(e => e.co_available_date).IsRequired();
-                entity.Property(e => e.session_start_time).IsRequired();
-                entity.Property(e => e.session_end_time).IsRequired();
+                entity.Property(e => e.time_slot).IsRequired();
                 entity.Property(e => e.therapistId).IsRequired();
 
-                //entity.HasOne(e => e.CounsellingPsychologist)
-                //      .WithMany(c => c.CounsellingDoctorAvailabilities)
-                //      .HasForeignKey(e => e.therapistId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("CounsellingDoctorAvailability");
+                
             });
             modelBuilder.Entity<CounsellingDoctorAvailability>().ToTable("CounsellingDoctorAvailability");
 
@@ -155,17 +127,7 @@ namespace AllEars.Server.Repositories
                 entity.Property(e => e.patientId).IsRequired();
                 entity.Property(e=>e.clinicalDoctorId).IsRequired();
 
-                //entity.HasOne(e => e.Patient)
-                //      .WithMany(p => p.BookAppointments)
-                //      .HasForeignKey(e => e.patientId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.HasOne(e => e.ClinicalPsychologist)
-                //      .WithMany(c => c.BookAppointments)
-                //      .HasForeignKey(e => e.clinicalDoctorId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("BookAppointment");
+               
             });
             modelBuilder.Entity<BookAppointment>().ToTable("BookAppointment");
 
@@ -178,22 +140,7 @@ namespace AllEars.Server.Repositories
                 entity.Property(e => e.clinicalDoctorId).IsRequired();
                 entity.Property(e => e.appointment_id).IsRequired();
 
-                //entity.HasOne(e => e.Patient)
-                //      .WithMany(p => p.Billings)
-                //      .HasForeignKey(e => e.patientId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.HasOne(e => e.ClinicalPsychologist)
-                //      .WithMany(c => c.Billings)
-                //      .HasForeignKey(e => e.clinicalDoctorId)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.HasOne(e => e.BookAppointment)
-                //      .WithMany(b => b.Billings)
-                //      .HasForeignKey(e => e.appointment_id)
-                //      .OnDelete(DeleteBehavior.Restrict);
-
-                //entity.ToTable("Billing");
+                
             });
             modelBuilder.Entity<Billing>().ToTable("Billing");
         }

@@ -35,6 +35,20 @@ namespace AllEars.Server.Controllers
             return Ok(availability);
         }
 
+        [HttpGet("getByDate")]
+        public async Task<IActionResult> GetByDate([FromQuery] string date)
+        {
+            if (string.IsNullOrWhiteSpace(date))
+            {
+                return BadRequest("Date parameter is required.");
+            }
+
+            List<CounsellingDoctorAvailability> availabilities = await _counsellingDoctorAvailabilityService.GetByDate(date);
+
+            return Ok(availabilities);
+        }
+
+
         [HttpPost("create")]
         public async Task<IActionResult> Create([FromBody] CounsellingDoctorAvailability co_avail)
         {
@@ -68,6 +82,7 @@ namespace AllEars.Server.Controllers
 
             return NotFound(new { message = "Availability not found." });
         }
+
 
         [HttpDelete("delete/{id}")]
         public async Task<IActionResult> Delete(int id)

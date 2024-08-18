@@ -29,25 +29,13 @@ namespace AllEars.Server.Entities
         [MaxLength(5, ErrorMessage = "Blood Group should not exceed 5 characters")]
         public string patient_bloodGroup { get; set; }
 
-        [ForeignKey("Category")]
-        public int category_id { get; set; }
-
-        //// Navigation property to Category
-        //public Category Category { get; set; }
 
         public string address { get; set; }
 
-        // List of BookAppointments
-        //public ICollection<BookAppointment> BookAppointments { get; set; }
-
-        // List of Billings
-        //public ICollection<Billing> Billings { get; set; }
-
-        // Default constructor
         public Patient() { }
 
         // Parameterized constructor
-        public Patient(int patient_id, string patient_name, string patient_email, string patient_password, string patient_gender, int patient_age, string patient_bloodGroup, int categ_id, string address)
+        public Patient(int patient_id, string patient_name, string patient_email, string patient_password, string patient_gender, int patient_age, string patient_bloodGroup, string address)
         {
             this.patient_id = patient_id;
             this.patient_name = patient_name;
@@ -56,7 +44,6 @@ namespace AllEars.Server.Entities
             this.patient_gender = patient_gender;
             this.patient_age = patient_age;
             this.patient_bloodGroup = patient_bloodGroup;
-            this.category_id = categ_id;
             this.address = address;
         }
     }

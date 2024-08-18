@@ -24,6 +24,11 @@ namespace AllEars.Server.Services
             return await _counsellingDoctorAvailabilityRepository.GetById(id);
         }
 
+        public async Task<List<CounsellingDoctorAvailability>> GetByDate(string date)
+        {
+            return await _counsellingDoctorAvailabilityRepository.GetByDate(date);
+        }
+
         public async Task<bool> Create(CounsellingDoctorAvailability co_avail)
         {
             return await _counsellingDoctorAvailabilityRepository.Create(co_avail);

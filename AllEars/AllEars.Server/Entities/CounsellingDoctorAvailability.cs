@@ -15,25 +15,21 @@ namespace AllEars.Server.Entities
         //public CounsellingPsychologist CounsellingPsychologist { get; set; }
 
         [Required]
-        public DateTime co_available_date { get; set; }
+        public string co_available_date { get; set; }
 
         [Required]
-        public TimeSpan session_start_time { get; set; }
-
-        [Required]
-        public TimeSpan session_end_time { get; set; }
+        public string time_slot { get; set; }
 
         // Default constructor
         public CounsellingDoctorAvailability() { }
 
         // Parameterized constructor
-        public CounsellingDoctorAvailability(int co_availability_id, int therapistId, DateTime co_available_date, TimeSpan session_start_time, TimeSpan session_end_time)
+        public CounsellingDoctorAvailability(int co_availability_id, int therapistId, string co_available_date, string time_slot)
         {
             this.co_availability_id = co_availability_id;
             this.therapistId = therapistId;
             this.co_available_date = co_available_date;
-            this.session_start_time = session_start_time;
-            this.session_end_time = session_end_time;
+            this.time_slot = time_slot;
         }
     }
 }

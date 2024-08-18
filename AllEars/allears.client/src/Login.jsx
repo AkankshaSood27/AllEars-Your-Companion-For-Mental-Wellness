@@ -26,7 +26,7 @@ const Login = () => {
             password: password,
         };
         axios
-            .post("https://localhost:7032/api/auth/login", authReq, {
+            .post("https://localhost:5265/api/auth/login", authReq, {
                 headers: {
                     "Content-Type": "application/json",
                 },

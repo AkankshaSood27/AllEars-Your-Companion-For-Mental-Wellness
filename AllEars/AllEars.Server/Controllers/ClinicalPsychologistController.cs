@@ -15,6 +15,7 @@ namespace AllEars.Server.Controllers
             _clinicalPsychologistService = clinicalPsychologistService;
         }
 
+
         [HttpGet("get")]
         public async Task<IActionResult> GetAllClinicalPsychologists()
         {
@@ -44,6 +45,17 @@ namespace AllEars.Server.Controllers
                 return Ok(new { message = "Clinical Psychologist updated successfully." });
             }
             return BadRequest(new { message = "Failed to update Clinical Psychologist." });
+        }
+
+        [HttpGet("bycategory/{categoryId}")]
+        public async Task<IActionResult> GetClinicalPsychologistsByCategoryId(int categoryId)
+        {
+            var psychologists = await _clinicalPsychologistService.GetClinicalPsychologistsByCategoryId(categoryId);
+            if (psychologists.Count > 0)
+            {
+                return Ok(psychologists);
+            }
+            return NotFound(new { message = "No Clinical Psychologists found for the given category." });
         }
 
         [HttpDelete("delete/{id}")]

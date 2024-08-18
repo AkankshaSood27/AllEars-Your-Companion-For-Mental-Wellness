@@ -70,7 +70,7 @@ namespace AllEars.Server.Repositories
                 existingPatient.patient_age= patient.patient_age;
                 existingPatient.patient_bloodGroup= patient.patient_bloodGroup;
                 existingPatient.address = patient.address;
-                existingPatient.category_id=patient.category_id;
+               
 
                
                 await context.SaveChangesAsync();

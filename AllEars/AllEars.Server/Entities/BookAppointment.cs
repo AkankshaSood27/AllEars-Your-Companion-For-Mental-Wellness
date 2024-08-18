@@ -17,23 +17,17 @@ namespace AllEars.Server.Entities
         public int clinicalDoctorId { get; set; } // Changed to match database column name
 
         [Required]
-        public DateTime appointment_date { get; set; }
+        public string appointment_date { get; set; }
 
         [Required]
-        public TimeSpan appointment_time { get; set; }
+        public string appointment_time { get; set; }
 
-        // Navigation properties
-        //public Patient Patient { get; set; }
-        //public ClinicalPsychologist ClinicalPsychologist { get; set; }
-
-        // Navigation property for Billing
-        //public ICollection<Billing> Billings { get; set; } // Added for related Billing entries
-
+       
         // Default constructor
         public BookAppointment() { }
 
         // Parameterized constructor
-        public BookAppointment(int appointment_id, int patient_id, int clinicalDoctor_id, DateTime appointment_date, TimeSpan appointment_time)
+        public BookAppointment(int appointment_id, int patient_id, int clinicalDoctor_id, string appointment_date, string appointment_time)
         {
             this.appointment_id = appointment_id;
             this.patientId = patient_id; // Changed to match database column name

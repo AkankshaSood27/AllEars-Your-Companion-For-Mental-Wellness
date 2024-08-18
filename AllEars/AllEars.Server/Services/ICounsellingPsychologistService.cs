@@ -6,6 +6,7 @@ namespace AllEars.Server.Services
     {
         Task<List<CounsellingPsychologist>> GetAllCounsellingPsychologists();
         Task<CounsellingPsychologist> GetCounsellingPsychologistById(int counsellingPsychologistId);
+        Task<List<CounsellingPsychologist>> GetCounsellingPsychologistByCategoryID(int categoryId);
         Task<bool> CreateCounsellingPsychologist(CounsellingPsychologist counsellingPsychologist);
         Task<bool> UpdateCounsellingPsychologist(int id, CounsellingPsychologist counsellingPsychologist);
         Task<bool> DeleteCounsellingPsychologist(int counsellingPsychologistId);

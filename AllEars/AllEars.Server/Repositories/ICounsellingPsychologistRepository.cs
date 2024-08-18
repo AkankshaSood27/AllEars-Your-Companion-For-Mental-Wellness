@@ -6,6 +6,7 @@ namespace AllEars.Server.Repositories
     {
         Task<List<CounsellingPsychologist>> GetAllCounsellingPsychologists();
         Task<CounsellingPsychologist> GetCounsellingPsychologistById(int counselling_psychologist_id);
+        Task<List<CounsellingPsychologist>> GetCounsellingPsychologistByCategoryID(int categoryId);
         Task<bool> CreateCounsellingPsychologist(CounsellingPsychologist counsellingPsychologist);
         Task<bool> UpdateCounsellingPsychologist(int id, CounsellingPsychologist counsellingPsychologist);
         Task<bool> DeleteCounsellingPsychologist(int counselling_psychologist_id);

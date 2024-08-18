@@ -10,9 +10,12 @@ import Dashboard from './components/Dashboard';
 import Footer from './components/Footer';  
 import Register from './Register';
 import Login from './Login';
+import BookSession from './components/BookSession';
+import Psychologist from './components/Psychologist';
 import './index.css';
 import './Login.css';
 import './Register.css';
+import BookAppointment from './components/BookAppointment';
 function App ()  {
     
 
@@ -27,9 +30,12 @@ function App ()  {
                     <Route path="/" element={<HeroSection />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/psychologist" element={<Psychologist />} />
+                    <Route path="/book-session" element={<BookSession />} />
                     <Route path="/register" element={<Register />} /> {/* Register route */}
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
+                    <Route path="/book-appointment" element={<BookAppointment />} />
                 </Routes>
                 <Footer />
             </Router>

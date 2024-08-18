@@ -6,6 +6,7 @@ namespace AllEars.Server.Repositories
     {
         Task<List<CounsellingDoctorAvailability>> GetAll();
         Task<CounsellingDoctorAvailability> GetById(int id);
+        Task<List<CounsellingDoctorAvailability>> GetByDate(string date);
         Task<bool> Create(CounsellingDoctorAvailability co_avail);
         Task<bool> Update(int id, CounsellingDoctorAvailability co_avail);
         Task<bool> Delete(int id);

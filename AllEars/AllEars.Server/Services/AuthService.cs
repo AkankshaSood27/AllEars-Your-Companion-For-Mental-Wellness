@@ -1,6 +1,5 @@
 ﻿using AllEars.Server.Entities;
 using AllEars.Server.Repositories;
-using BCrypt.Net;
 using AllEars.Server.Services;
 
 public class AuthService : IAuthService
@@ -46,7 +45,7 @@ public class AuthService : IAuthService
         }
 
         // Hash the password before saving
-        patient.patient_password = BCrypt.Net.BCrypt.HashPassword(patient.patient_password);
+        patient.patient_password = patient.patient_password;
 
         // Insert the new patient
         bool result = await _patientRepository.Insert(patient);

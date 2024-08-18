@@ -29,6 +29,18 @@ namespace AllEars.Server.Controllers
             return Ok(psychologist);
         }
 
+        [HttpGet("bycategory/{categoryId}")]
+        public async Task<IActionResult> GetCounsellingPsychologistsByCategoryID(int categoryId)
+        {
+            var psychologists = await _counsellingPsychologistService.GetCounsellingPsychologistByCategoryID(categoryId);
+            if (psychologists == null || psychologists.Count == 0)
+            {
+                return NotFound(new { message = "No Counselling Psychologists found for the specified category." });
+            }
+            return Ok(psychologists);
+        }
+
+
         [HttpPost("create")]
         public async Task<IActionResult> CreateCounsellingPsychologist(CounsellingPsychologist psychologist)
         {

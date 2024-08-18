@@ -31,6 +31,18 @@ namespace AllEars.Server.Controllers
             return Ok(availability);
         }
 
+        [HttpGet("getByDate")]
+        public async Task<IActionResult> GetByDate([FromQuery] string date)
+        {
+            if (string.IsNullOrWhiteSpace(date))
+            {
+                return BadRequest("Date parameter is required.");
+            }
+
+            List<ClinicalDoctorAvailability> availabilities = await _clinicalDoctorAvailabilityService.GetByDate(date);
+            return Ok(availabilities);
+        }
+
         [HttpPost("create")]
         public async Task<IActionResult> Create(ClinicalDoctorAvailability cl_avail)
         {

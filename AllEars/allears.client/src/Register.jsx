@@ -26,7 +26,7 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         axios
-            .post("https://localhost:7032/api/auth/register", formData, {
+            .post("https://localhost:5265/api/auth/register", formData, {
                 headers: {
                     "Content-Type": "application/json",
                 },

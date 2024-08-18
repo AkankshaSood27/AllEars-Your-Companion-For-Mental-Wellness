@@ -23,7 +23,10 @@ namespace AllEars.Server.Services
         {
             return await _availabilityRepository.GetById(id);
         }
-
+        public async Task<List<ClinicalDoctorAvailability>> GetByDate(string date)
+        {
+            return await _availabilityRepository.GetByDate(date);
+        }
         public async Task<bool> Create(ClinicalDoctorAvailability cl_avail)
         {
             return await _availabilityRepository.Create(cl_avail);

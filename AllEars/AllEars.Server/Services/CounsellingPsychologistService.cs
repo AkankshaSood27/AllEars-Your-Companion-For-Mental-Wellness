@@ -23,7 +23,10 @@ namespace AllEars.Server.Services
         {
             return await _counsellingPsychologistRepository.GetCounsellingPsychologistById(counsellingPsychologistId);
         }
-
+        public async Task<List<CounsellingPsychologist>> GetCounsellingPsychologistByCategoryID(int categoryId)
+        {
+            return await _counsellingPsychologistRepository.GetCounsellingPsychologistByCategoryID(categoryId);
+        }
         public async Task<bool> CreateCounsellingPsychologist(CounsellingPsychologist counsellingPsychologist)
         {
             return await _counsellingPsychologistRepository.CreateCounsellingPsychologist(counsellingPsychologist);

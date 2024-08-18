@@ -33,6 +33,18 @@ namespace AllEars.Server.Repositories
             }
         }
 
+        public async Task<List<CounsellingDoctorAvailability>> GetByDate(string date)
+        {
+            using (var context = new AllEarsContext())
+            {
+                var availabilities = await context.CounsellingDoctorAvailabilities
+                    .Where(a => a.co_available_date == date)
+                    .ToListAsync();
+
+                return availabilities;
+            }
+        }
+
         public async Task<bool> Create(CounsellingDoctorAvailability co_avail)
         {
             using (var context = new AllEarsContext())
@@ -56,8 +68,7 @@ namespace AllEars.Server.Repositories
                 // Update the existing record
                 existingAvailability.therapistId = co_avail.therapistId;
                 existingAvailability.co_available_date = co_avail.co_available_date;
-                existingAvailability.session_start_time = co_avail.session_start_time;
-                existingAvailability.session_end_time = co_avail.session_end_time;
+                existingAvailability.time_slot = co_avail.time_slot;
 
                 await context.SaveChangesAsync();
                 return true;
